@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '50%',
+    width: '70%',
   },
   button: {
     backgroundColor: '#007bff',

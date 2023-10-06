@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { Picker as SelectPicker } from '@react-native-picker/picker'
 import Header2 from '../components/header2';
-import { Entypo } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function SignUp() {
     const [selectedValue, setSelectedValue] = React.useState("facebook");
     const [Option, setOption] = useState("");
 
+    const navigation = useNavigation()
 
     return (
         <View style={styles.container}>
@@ -33,7 +34,7 @@ export default function SignUp() {
                 <TextInput style={styles.input} placeholder="Name" />
                 <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
                 <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
             <View style={styles.footer}>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { Picker as SelectPicker } from '@react-native-picker/picker'
 import Header2 from '../components/header2';
 import { FontAwesome } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 
 
 
@@ -10,9 +11,9 @@ export default function Login() {
     const [selectedValue, setSelectedValue] = React.useState("facebook");
     const [Option, setOption] = useState("");
 
-
+    const navigation = useNavigation()
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Header2 />
             <View style={styles.getstarted}>
                 <Text style={styles.title}>Sign In With Covid- 19 App</Text>
@@ -42,13 +43,13 @@ export default function Login() {
                     </View>
                 </View>
             </View>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Sign Up</Text>
+            <TouchableOpacity style={styles.button} >
+                <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             <View style={styles.footer}>
-                <Text style={styles.signInText}>Already have an account? Sign in</Text>
+                <Text style={styles.signInText} onPress={()=> navigation.navigate("Register")}>You don't have an account? Sign up</Text>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
