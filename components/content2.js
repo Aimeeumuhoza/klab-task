@@ -3,8 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function Box() {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <Text style={styles.title}>We Provide</Text>
@@ -15,7 +18,7 @@ export default function Box() {
         </View>
         <View style={styles.box}>
         <FontAwesome5 name="hospital" size={24} color="black" />
-          <Text>hospital</Text>
+          <Text onPress={()=>navigation.navigate('Hospital')}>hospital</Text>
         </View>
       </View>
       <View style={styles.row}>
