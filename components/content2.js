@@ -4,6 +4,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import Home2TabNavigator from '../navigation/Home2TabNavigator'
 
 
 export default function Box() {
@@ -18,7 +19,7 @@ export default function Box() {
         </View>
         <View style={styles.box}>
         <FontAwesome5 name="hospital" size={24} color="black" />
-          <Text onPress={()=>navigation.navigate('Hospital')}>hospital</Text>
+          <Text onPress={()=>navigation.navigate('Home2TabNavigator')}>hospital</Text>
         </View>
       </View>
       <View style={styles.row}>

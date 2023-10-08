@@ -5,7 +5,7 @@ import HomeTabNavigator from './HomeTabNavigator'
 import Home from '../pages/Home'
 import Box from '../components/content2';
 import Hospital from '../pages/Hospital'
-
+import Home2TabNavigator from './Home2TabNavigator'
 
 const Stack = createStackNavigator()
 
@@ -20,8 +20,16 @@ const Router = () => {
                         headerShown: false
                     }}
                 />
+                 <Stack.Screen
+                    name={'Home2TabNavigator'}
+                    component={Home2TabNavigator}
+                    options={{
+                        headerShown: false
+                    }}
+                />
                 <Stack.Screen name="Box" component={Box} />
                 <Stack.Screen name="Hospital" component={Hospital} />
+                
             </Stack.Navigator>
         </NavigationContainer>
     )

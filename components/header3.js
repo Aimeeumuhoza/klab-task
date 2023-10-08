@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const Header = (props) => {
+  const navigation = useNavigation()
   return (
     <View style={styles.header}>
       <View style={styles.leftContent}>
-        <Ionicons name="arrow-back" size={24} color="black" />
+        <Ionicons name="arrow-back" size={24} color="black" onPress={()=>navigation.navigate('HomeTabNavigator')} />
       </View>
       <Text style={styles.headerText}>{props.title}</Text>
       <View style={styles.rightContent}>
