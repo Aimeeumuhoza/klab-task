@@ -6,7 +6,8 @@ export default function Header2() {
   return (
     <View style={styles.header}>
       <View style={styles.leftContent}>
-        <MaterialCommunityIcons name="shield-plus" size={45} color="blue" />
+      <MaterialCommunityIcons name="shield-cross" size={45} color="blue" />
+        {/* <MaterialCommunityIcons name="shield-plus" size={45} color="blue" /> */}
         <Text style={styles.headerText}>covid 19 HelpCare</Text>
       </View>
       

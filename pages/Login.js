@@ -4,8 +4,7 @@ import { Picker as SelectPicker } from '@react-native-picker/picker'
 import Header2 from '../components/header2';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
-
-
+import {FacebookOption,InstagramOption} from '../assets/icon'
 
 export default function Login() {
     const [selectedValue, setSelectedValue] = React.useState("facebook");
@@ -26,8 +25,11 @@ export default function Login() {
                     selectedValue={Option}
                     onChangeText={(value) => setOption(value)}
                     style={styles.selectPicker}>
-                    <SelectPicker.Item onChangeText={(value) => setOption(value)} style={styles.item} label="facebook" value={Option} />
-                    <SelectPicker.Item onChangeText={(value) => setOption(value)} style={styles.item} label="Instagram" value={Option} />
+
+                    
+                    <SelectPicker.Item onChangeText={(value) => setOption(value)} style={styles.item} label="facebook" value={Option} component={FacebookOption}/>
+
+                    <SelectPicker.Item onChangeText={(value) => setOption(value)} style={styles.item} label="Instagram" value={Option}  component={InstagramOption}/>
                 </SelectPicker>
 
                 <Text style={{ textAlign: 'center', padding: 10 }}>OR </Text>
@@ -43,11 +45,11 @@ export default function Login() {
                     </View>
                 </View>
             </View>
-            <TouchableOpacity style={styles.button} >
-                <Text style={styles.buttonText}>Login</Text>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("HomeTabNavigator")} >
+                <Text style={styles.buttonText} >Login</Text>
             </TouchableOpacity>
             <View style={styles.footer}>
-                <Text style={styles.signInText} onPress={()=> navigation.navigate("Register")}>You don't have an account? Sign up</Text>
+                <Text style={styles.signInText} onPress={() => navigation.navigate("Register")}>You don't have an account? Sign up</Text>
             </View>
         </ScrollView>
     );
@@ -115,13 +117,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 20, // Optional: Add padding to the sides
-      },
-      togleItem:{
-        flexDirection:"row",
-      },
-      remember:{
-        paddingLeft:12,
-      }
+    },
+    togleItem: {
+        flexDirection: "row",
+    },
+    remember: {
+        paddingLeft: 12,
+    }
 
 
 });

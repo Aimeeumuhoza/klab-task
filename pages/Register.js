@@ -8,8 +8,17 @@ import { useNavigation } from '@react-navigation/native';
 export default function SignUp() {
     const [selectedValue, setSelectedValue] = React.useState("facebook");
     const [Option, setOption] = useState("");
+    const [name ,setName]=useState("")
+    const [email,setEmail]=useState("")
+
 
     const navigation = useNavigation()
+    const Register=()=>{
+        navigation.navigate("Details",{
+            name:name,
+            email:email
+        })
+    };
 
     return (
         <View style={styles.container}>
@@ -30,11 +39,11 @@ export default function SignUp() {
                 </SelectPicker>
 
                 <Text style={{ textAlign: 'center', padding: 10 }}>OR </Text>
-                <TextInput style={styles.input} placeholder="Email" />
-                <TextInput style={styles.input} placeholder="Name" />
+                <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={(text)=>setEmail(text)}/>
+                <TextInput style={styles.input} placeholder="Name" value={name} onChangeText={(text)=>setName(text)} />
                 <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
+            <TouchableOpacity style={styles.button} onPress={Register}>
                 <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
             <View style={styles.footer}>
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
     button: {
         height: 50,
         width: '100%',
-        backgroundColor: '#007bff',
+        backgroundColor: 'blue',
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',

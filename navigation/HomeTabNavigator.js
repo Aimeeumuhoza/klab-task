@@ -14,7 +14,9 @@ const HomeTabNavigator = () => {
                 options={{
                     tabBarIcon: ({ color }) => (
                         <FontAwesome name="home" size={32} color="red" />
+                        
                     ),
+                    headerShown:false
                 }}
 
                 title="Home"
@@ -26,6 +28,7 @@ const HomeTabNavigator = () => {
                     tabBarIcon: ({ color }) => (
                         <Ionicons  name="person" size={28} color={color}/>
                     ),
+                    headerShown:false
                 }}
             />
             <Tab.Screen 

@@ -27,7 +27,6 @@
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Doctor from "../pages/Doctor"
-import { FontAwesome, AntDesign, Ionicons, Feather,MaterialIcons } from '@expo/vector-icons';
 import Hospital from '../pages/Hospital';
 
 const Tab = createMaterialTopTabNavigator()
@@ -43,7 +42,6 @@ const Home2TabNavigator = () => {
                 //     ),
                 // }}
 
-                title="Home"
             />
             <Tab.Screen
                 name="Hospital"
@@ -54,8 +52,8 @@ const Home2TabNavigator = () => {
                 //     ),
                 // }}
             />
-            
         </Tab.Navigator>
+       
     )
 }
 

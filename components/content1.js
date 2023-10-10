@@ -27,14 +27,16 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'E9EAFF'
   },
   outerBox: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '',
     padding: 20,
-    borderRadius: 20,
+    borderRadius: 0,
     width: '100%',
     alignItems: 'left',
-    elevation: 5,
+    elevation: 1,
+    backgroundColor:''
   },
   boxTitle: {
     fontSize: 22,

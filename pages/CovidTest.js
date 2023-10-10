@@ -21,7 +21,7 @@ const CovidTest = () => {
             </View>
             <View>
                 <Text>Your Phone</Text>
-                <TextInput style={styles.input} placeholder="+25055555555" />
+                <TextInput style={styles.input} placeholder="+25055555555" keyboardType='number'/>
             </View>
             <View>
                 <Text>Blood Group</Text>
@@ -52,12 +52,12 @@ const CovidTest = () => {
                                 height: 24,
                                 borderRadius: 12,
                                 borderWidth: 2,
-                                borderColor: selectedOption === 'male' ? 'blue' : 'gray',
+                                borderColor: selectedOption === 'male' ? 'white' : 'gray',
                                 justifyContent: 'center',
                                 alignItems: 'center',
                             }}
                         >
-                            {selectedOption === 'male' && <View style={{ width: 12, height: 12, borderRadius: 6, backgroundColor: 'white' }} />}
+                            {selectedOption === 'male' && <View style={{ width: 12, height: 12, borderRadius: 6, backgroundColor: 'blue ' }} />}
                         </View>
 
                     </TouchableOpacity>

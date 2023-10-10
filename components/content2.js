@@ -11,11 +11,11 @@ export default function Box() {
   const navigation = useNavigation()
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>We Provide</Text>
+      <Text style={styles.title}>Covid service We Provide</Text>
       <View style={styles.row}>
         <View style={styles.box}>
         <Fontisto name="blood-test" size={24} color="black" />
-          <Text>covid Test</Text>
+          <Text onPress={()=>navigation.navigate('CovidTest')}>covid Test</Text>
         </View>
         <View style={styles.box}>
         <FontAwesome5 name="hospital" size={24} color="black" />
@@ -37,33 +37,34 @@ export default function Box() {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // marginTop: 2,
+    
     width: '100%',
-    marginLeft: -5,
+    // height: '55%',
+    padding: 7,
+    // alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor:'white'
   },
   title: {
+    alignItems: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    // marginTop: 4,
+    marginTop:-9,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '100%', // Adjust the width to control the space between boxes
-    paddingHorizontal: 5, // Adjust the horizontal padding for spacing on the edges
-    marginTop: 5,
+    width: '100%', 
+    paddingHorizontal: 2, // Adjust the horizontal padding for spacing on the edges
+   
   },
   box: {
     backgroundColor: 'white',
-    padding: 15,
-    height: 100,
+    padding: 1,
+    height: '69%',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '45%', // Adjust the width to control the space between boxes
+    width: '50%', // Adjust the width to control the space between boxes
     borderRadius: 5,
     elevation: 5, // Elevation for Android shadow effect
     shadowColor: 'black', // Shadow color for iOS shadow effect

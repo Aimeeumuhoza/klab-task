@@ -11,8 +11,8 @@ export default function Header() {
         <Text style={styles.headerText}>covid 19</Text>
       </View>
       <View style={styles.rightContent}>
-        <Ionicons name="search" size={24} color="black" style={styles.icon} />
-        <Ionicons name="notifications" size={24} color="black" style={styles.icon} />
+        <Ionicons name="search" size={24} color="black" style={[styles.icon, styles.iconMargin]} />
+        <Ionicons name="notifications-outline" size={24} color="black" style={styles.icon} />
       </View>
     </View>
   );
@@ -24,22 +24,27 @@ const styles = StyleSheet.create({
     height: 80,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between', // Align children to the ends of the header
+    justifyContent: 'space-between', 
     paddingHorizontal: 20,
+    backgroundColor: 'white',
   },
   leftContent: {
-    flexDirection: 'row', // Align shield icon and text horizontally
-    alignItems: 'center', // Center items vertically
+    flexDirection: 'row', 
+    alignItems: 'center', 
   },
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginLeft: 10, // Add space between the shield icon and the text
+    marginLeft: 10,
   },
   rightContent: {
-    flexDirection: 'row', // Align search and notifications icons horizontally
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
   },
   icon: {
     marginLeft: 20,
+  },
+  iconMargin: {
+    marginRight: 10, 
   },
 });
