@@ -13,7 +13,7 @@ const HomeTabNavigator = () => {
                 component={Home}
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <FontAwesome name="home" size={32} color="red" />
+                        <FontAwesome name="home" size={32} color={color} />
                         
                     ),
                     headerShown:false
@@ -36,7 +36,7 @@ const HomeTabNavigator = () => {
                 component={SignUp}
                 options={{
                     tabBarIcon:({color})=>(
-                        <MaterialIcons name="wifi-calling" size={24} color="black" />
+                        <MaterialIcons name="wifi-calling" size={24} color={color} />
                     )
                 }}
             />

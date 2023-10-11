@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView,KeyboardAvoidingView } from 'react-native';
 import { Picker as SelectPicker } from '@react-native-picker/picker'
 import Header2 from '../components/header2';
 import { FontAwesome } from '@expo/vector-icons';
@@ -9,10 +9,48 @@ import {FacebookOption,InstagramOption} from '../assets/icon'
 export default function Login() {
     const [selectedValue, setSelectedValue] = React.useState("facebook");
     const [Option, setOption] = useState("");
+    const [email,setEmail]=useState("")
+    const [password, setPassword]=useState("")
+    const [error, setError]=useState('')
+
+    // const validateForm = () => {
+    //     let errors = {};
+    //     if (!email) {
+    //         errors.email = 'Enter email';
+    //     }
+    //     if (!password) {
+    //         errors.password = 'Enter password';
+    //     }
+    
+    //     setError(errors);
+    //     return Object.keys(errors).length === 0;
+    // };
+    const validateForm = () => {
+        let errors = {};
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+        if (!email) {
+            errors.email = 'Enter email';
+        } else if (!emailRegex.test(email)) {
+            errors.email = 'Invalid email format';
+        }
+    
+        if (!password) {
+            errors.password = 'Enter password';
+        }
+    
+        setError(errors);
+        return Object.keys(errors).length === 0;
+    };
+    
 
     const navigation = useNavigation()
     return (
-        <ScrollView style={styles.container}>
+        
+        <KeyboardAvoidingView 
+        behavior='padding' 
+        keyboardVerticalOffset={100}
+        style={styles.container}>
             <Header2 />
             <View style={styles.getstarted}>
                 <Text style={styles.title}>Sign In With Covid- 19 App</Text>
@@ -33,8 +71,12 @@ export default function Login() {
                 </SelectPicker>
 
                 <Text style={{ textAlign: 'center', padding: 10 }}>OR </Text>
-                <TextInput style={styles.input} placeholder="Enter your email" />
-                <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
+                <TextInput style={styles.input} placeholder="Enter your email"   value={email} onChangeText={(text)=>setEmail(text)}/>
+                {
+               error.email && <Text style={{color:'red'}}>{error.email}</Text>
+                }
+               
+                <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} value={password} onChangeText={(text)=>setPassword(text)}/>
                 <View style={styles.toggle}>
                     <View style={styles.togleItem}>
                         <FontAwesome name="toggle-off" size={24} color="black" />
@@ -42,16 +84,28 @@ export default function Login() {
                     </View>
                     <View>
                         <Text>Forgot Password</Text>
+                        {
+               error.password &&<Text>{error.password}</Text>
+                }
                     </View>
                 </View>
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("HomeTabNavigator")} >
+            <TouchableOpacity style={styles.button} onPress={() => {
+            if (validateForm()) {
+        navigation.navigate("HomeTabNavigator");
+    }
+}}>
+    <Text style={styles.buttonText}>Login</Text>
+</TouchableOpacity>
+
+            {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("HomeTabNavigator")} >
                 <Text style={styles.buttonText} >Login</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <View style={styles.footer}>
                 <Text style={styles.signInText} onPress={() => navigation.navigate("Register")}>You don't have an account? Sign up</Text>
             </View>
-        </ScrollView>
+        </KeyboardAvoidingView>
+        
     );
 }
 
