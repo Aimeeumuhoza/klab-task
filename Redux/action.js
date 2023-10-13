@@ -1,19 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const taskSlice = createSlice({
-  name: "user",
-  initialState: {
-    email: "ai@gmail.com",
-    users: []
-  },
-  reducers: {
-    addTask: (state, action) => {
-      const newTask = {
-        email: action.payload.email,
-        password: action.payload.password,
-      };
-      state.users = [...state.users, newTask]; 
-    },
+    name: "user",
+    initialState:[],
+    reducers: {
+      addTask: (state, action) => {
+        const newTask = {
+          email: action.payload.email,
+          password: action.payload.password,
+        };
+        state.push(newTask);
+    }
   },
 });
 

@@ -11,7 +11,8 @@ export default function Header() {
   console.log(user.email)
   return (
     <View style={styles.header}>
-      <Text style={[ styles.text]}>{user.email}</Text>
+      {/* <Text style={[ styles.text]}>{user.email}</Text> */}
+      <Text style={[ styles.text]}>{user[0].email}</Text>
       <View style={styles.headerr}>
       <View style={styles.leftContent}>
         <MaterialCommunityIcons name="shield-plus" size={24} color="blue" />
