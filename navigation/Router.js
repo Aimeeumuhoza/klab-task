@@ -8,6 +8,7 @@ import Hospital from '../pages/Hospital'
 import Home2TabNavigator from './Home2TabNavigator'
 import Login from '../pages/Login'
 import SignUp from '../pages/Register'
+import CovidTest from '../pages/covidTest'
 
 const Stack = createStackNavigator()
 
@@ -39,7 +40,8 @@ const Router = () => {
                 <Stack.Screen name="Box" component={Box} />
                 <Stack.Screen name="Hospital" component={Hospital} />
                 <Stack.Screen name="Register" component={SignUp} />
-                
+                <Stack.Screen name="CovidTest" component={CovidTest} />
+
             </Stack.Navigator>
         </NavigationContainer>
     )

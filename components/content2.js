@@ -4,7 +4,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import Home2TabNavigator from '../navigation/Home2TabNavigator'
+import {Home2TabNavigator,CovidTest} from '../navigation/Home2TabNavigator'
 
 
 export default function Box() {

@@ -6,12 +6,15 @@ import Hospital from './Hospital'
 
 
 
+
 const Home = () => {
   return (
     <>
+    
         <Header />
         <Boxes />
         <Box />
+        
       
     </>
   )

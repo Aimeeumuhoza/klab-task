@@ -1,30 +1,44 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView,KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView,KeyboardAvoidingView, Platform } from 'react-native';
 import { Picker as SelectPicker } from '@react-native-picker/picker'
 import Header2 from '../components/header2';
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import {FacebookOption,InstagramOption} from '../assets/icon'
+import { SafeAreaView } from 'react-native';
+import { useDispatch} from "react-redux";
+import { addTask } from '../Redux/action';
+
 
 export default function Login() {
+
+    const dispatch = useDispatch();
+
     const [selectedValue, setSelectedValue] = React.useState("facebook");
     const [Option, setOption] = useState("");
     const [email,setEmail]=useState("")
     const [password, setPassword]=useState("")
     const [error, setError]=useState('')
 
-    // const validateForm = () => {
-    //     let errors = {};
-    //     if (!email) {
-    //         errors.email = 'Enter email';
-    //     }
-    //     if (!password) {
-    //         errors.password = 'Enter password';
-    //     }
+  const onSubmit = () => {
+    if(validateForm()){
+    dispatch(addTask({ email,password }));
+    setEmail("");
+    setPassword("")
+    navigation.navigate('HomeTabNavigator');
+   
+}
+  
+  }
+//   const onSubmit = () => {
+//     if (validateForm()) {
+//         dispatch(setEmail(email)); // Dispatch the action to set email in the Redux store
+//         navigation.navigate('HomeTabNavigator');
+//     }
+// };
+   
     
-    //     setError(errors);
-    //     return Object.keys(errors).length === 0;
-    // };
+ 
     const validateForm = () => {
         let errors = {};
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,10 +61,11 @@ export default function Login() {
     const navigation = useNavigation()
     return (
         
-        <KeyboardAvoidingView 
+        <ScrollView
         behavior='padding' 
         keyboardVerticalOffset={100}
         style={styles.container}>
+        
             <Header2 />
             <View style={styles.getstarted}>
                 <Text style={styles.title}>Sign In With Covid- 19 App</Text>
@@ -58,6 +73,7 @@ export default function Login() {
             <View style={{ marginTop: 20, flexDirection: 'row', justifyContent: "center", alignItems: 'center' }}>
                 <View style={{ flex: 0.2, height: 1, backgroundColor: 'black', fontWeight: "bold" }} />
             </View>
+            <KeyboardAvoidingView  behavior={Platform.OS==='ios'?'padding':'height'}>
             <View style={styles.inputContainer}>
                 <SelectPicker
                     selectedValue={Option}
@@ -71,12 +87,12 @@ export default function Login() {
                 </SelectPicker>
 
                 <Text style={{ textAlign: 'center', padding: 10 }}>OR </Text>
-                <TextInput style={styles.input} placeholder="Enter your email"   value={email} onChangeText={(text)=>setEmail(text)}/>
+                <TextInput style={styles.input} placeholder="Enter your email"    onChangeText={(value)=>setEmail(value)}/>
                 {
                error.email && <Text style={{color:'red'}}>{error.email}</Text>
                 }
                
-                <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} value={password} onChangeText={(text)=>setPassword(text)}/>
+                <TextInput style={styles.input} placeholder="Password" secureTextEntry={true}  onChangeText={(value)=>setPassword(value)}/>
                 <View style={styles.toggle}>
                     <View style={styles.togleItem}>
                         <FontAwesome name="toggle-off" size={24} color="black" />
@@ -90,11 +106,7 @@ export default function Login() {
                     </View>
                 </View>
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => {
-            if (validateForm()) {
-        navigation.navigate("HomeTabNavigator");
-    }
-}}>
+            <TouchableOpacity style={styles.button} onPress={onSubmit} >
     <Text style={styles.buttonText}>Login</Text>
 </TouchableOpacity>
 
@@ -104,7 +116,8 @@ export default function Login() {
             <View style={styles.footer}>
                 <Text style={styles.signInText} onPress={() => navigation.navigate("Register")}>You don't have an account? Sign up</Text>
             </View>
-        </KeyboardAvoidingView>
+            </KeyboardAvoidingView>
+        </ScrollView>
         
     );
 }
@@ -113,10 +126,20 @@ const styles = StyleSheet.create({
     container: {
         width: "100%",
         paddingHorizontal: 20,
+        marginTop:67,
+    },
+    containerr: {
+        width: "100%",
+        paddingHorizontal: 20,
+        marginTop:67,
+        
     },
     inputContainer: {
         width: '100%',
         marginBottom: 20,
+    },
+    keyboardAvoidingContainer: {
+        flex: 1,
     },
     input: {
         height: 50,

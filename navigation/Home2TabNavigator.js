@@ -1,29 +1,3 @@
-// import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-// import Doctor from '../pages/Doctor';
-// import Hospital from '../pages/Hospital';
-
-// const Navigator = createMaterialTopTabNavigator({
-//   Doctor: {
-//     screen: Doctor,
-//     navigationOptions: {
-//       tabBarLabel: 'Doctor',
-//     },
-//     options: {
-//       lazy: false,
-//     },
-//   },
-//   Hospital: {
-//     screen: Hospital,
-//     navigationOptions: {
-//       tabBarLabel: 'Hospital',
-//     },
-//     options: {
-//       lazy: false,
-//     },
-//   },
-// });
-
-// export default Navigator;
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Doctor from "../pages/Doctor"
