@@ -2,10 +2,6 @@ import React from 'react'
 import { useRoute } from '@react-navigation/native'
 import { StyleSheet, Text, View } from 'react-native'
 
-
-
-
-
 const Details = () => {
   const route=useRoute();
   return (

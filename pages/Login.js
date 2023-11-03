@@ -93,6 +93,9 @@ export default function Login() {
                 }
                
                 <TextInput style={styles.input} placeholder="Password" secureTextEntry={true}  onChangeText={(value)=>setPassword(value)}/>
+                {
+               error.password &&<Text>{error.password}</Text>
+                }
                 <View style={styles.toggle}>
                     <View style={styles.togleItem}>
                         <FontAwesome name="toggle-off" size={24} color="black" />

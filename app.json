@@ -25,6 +25,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "38754ee6-8622-4745-ada6-ea9ec1599c1a"
+      }
+    },
+    "owner": "aimee-u",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/38754ee6-8622-4745-ada6-ea9ec1599c1a"
     }
   }
 }
